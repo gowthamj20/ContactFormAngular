@@ -1,0 +1,13 @@
+#loginform
+{
+    margin-top: 10rem;
+    align-content: center;
+    display: flex;
+    width: 100%;
+}
+.card
+{
+    opacity: 0.9;
+    width: 35rem;
+    margin-left:23.5rem;
+}

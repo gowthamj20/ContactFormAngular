@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+
+body::-webkit-scrollbar {
+    display: none;
+}
+body
+{
+    background: url("../src/assets/Contact-Form-background.jpg") center center no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-repeat:no-repeat;
+    height:100%;
+    margin:0;
+}
+.navbar
+{
+    opacity:0.9;
+}

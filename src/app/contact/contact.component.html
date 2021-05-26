@@ -1,0 +1,188 @@
+<body>
+  <div class="row">
+    <div class="col-md-6">
+      <section id="formsection" class="form-group">
+        <div class="container">
+          <div class="card bg-light">
+            <div class="card-body">
+              <div class="card-title">
+                <h5>Contact Form</h5>
+              </div>
+              <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+                <div class="form-group row">
+                  <div class="col-md-4">
+                    <label for="name" class="col-form-label">Name:</label>
+                  </div>
+                  <div class="col-md-3">
+                    <select class="dropdown form-control">
+                      <option value="Mr" id="salutation" name="salutation">Mr.</option>
+                      <option value="Mrs" id="salutation" name="salutation">Mrs.</option>
+                      <option value="Miss" id="salutation" name="salutation">Miss</option>
+                    </select>
+                  </div>
+                  <div class="col-md-5">
+                    <!-- *ngIf="contactForm['submitted']"-->
+                    <input type="text" id="name" name="personName" formControlName="name" class="form-control" 
+                      [(ngModel)]="editContact.name" 
+                       style="color:green"
+                       [ngClass]="{'is-invalid':contactForm.get('name').invalid && (contactForm.get('name').dirty || contactForm.get('name').touched || contactForm['submitted']),
+                'is-valid':contactForm.get('name').valid && (contactForm.get('name').dirty || contactForm.get('name').touched || contactForm['submitted'] )
+              }" />
+              <span class="text-center text-danger" *ngIf="contactForm.get('name').invalid &&
+              (contactForm.get('name').touched || contactForm.get('name').dirty || contactForm['submitted']) 
+              && contactForm.get('name').errors?.required">
+                    Name is mandatory!
+                  </span>
+                  </div>
+                  
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-4">
+                    <label for="address" class="col-form-label">Address:</label>
+                  </div>
+                  <div class="col-md-8">
+                    <textarea id="address" class="form-control" formControlName="address"
+                      [(ngModel)]="editContact.address" [ngClass]="{
+                  'is-invalid':contactForm.get('address').invalid && (contactForm.get('address').dirty || contactForm.get('address').touched || contactForm['submitted']),
+                  'is-valid':contactForm.get('address').valid && (contactForm.get('address').dirty || contactForm.get('address').touched || contactForm['submitted'] )
+                }"></textarea>
+                <span class="text-danger" *ngIf="contactForm.get('address').invalid &&
+              (contactForm.get('address').touched || contactForm.get('address').dirty || contactForm['submitted']) 
+              && contactForm.get('address').errors?.required">
+                    Address is mandatory!
+                  </span>
+                  </div>
+                  
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-4">
+                    <label for="pincode" class="col-form-lablel">Pincode:</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input type="text" id="pincode" name="pincode" class="form-control" formControlName="pincode"
+                      [(ngModel)]="editContact.pincode" [ngClass]="{
+                  'is-invalid':contactForm.get('pincode').invalid && (contactForm.get('pincode').dirty || contactForm.get('pincode').touched || contactForm['submitted']),
+                  'is-valid':contactForm.get('pincode').valid && (contactForm.get('pincode').dirty || contactForm.get('pincode').touched || contactForm['submitted'] )
+                }" />
+                <span class="text-danger" *ngIf="contactForm.get('pincode').invalid &&
+              (contactForm.get('pincode').touched || contactForm.get('pincode').dirty || contactForm['submitted']) 
+              && contactForm.get('pincode').errors?.required">
+                    Pincode is mandatory
+                  </span>
+                  </div>
+                  
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-4">
+                    <label for="city" class="col-form-label">City:</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input type="text" id="city" name="city" class="form-control" formControlName="city"
+                      [(ngModel)]="editContact.city" [ngClass]="{
+                  'is-invalid':contactForm.get('city').invalid && (contactForm.get('city').dirty || contactForm.get('city').touched || contactForm['submitted']),
+                  'is-valid':contactForm.get('city').valid && (contactForm.get('city').dirty || contactForm.get('city').touched || contactForm['submitted'] )
+                }" />
+                <span class="text-danger" *ngIf="contactForm.get('city').invalid &&
+              (contactForm.get('city').touched || contactForm.get('city').dirty || contactForm['submitted']) 
+              && contactForm.get('city').errors?.required">
+                    Please provide a City Name
+                  </span>
+                  </div>
+                  
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-4">
+                    <label for="pincode" class="form-group-label">Country:</label>
+                  </div>
+                  <div class="col-md-8" >
+                    <select class="dropdown" formControlName="country">
+                      <option value="">Choose your Country</option>
+                      <option value="Luxembourg" selected id="countryID" name="countryID">Luxembourg</option>
+                      <option value="Netherlands" id="countryID" name="countryID">Netherlands</option>
+                      <option value="Belgium" id="countryID" name="countryID">Belgium</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-4">
+                    <label for="phno" class="col-form-group">Phone Number:</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input type="text" id="phno" name="phno" class="form-control" formControlName="phoneNumber"
+                      [(ngModel)]="editContact.phoneNumber" [ngClass]="{
+                  'is-invalid':contactForm.get('phoneNumber').invalid && (contactForm.get('phoneNumber').dirty || contactForm.get('phoneNumber').touched || contactForm['submitted']),
+                  'is-valid':contactForm.get('phoneNumber').valid && (contactForm.get('phoneNumber').dirty || contactForm.get('phoneNumber').touched || contactForm['submitted'] )
+                }" />
+                <span class="text-danger" *ngIf="contactForm.get('phoneNumber').invalid &&
+              (contactForm.get('phoneNumber').touched || contactForm.get('phoneNumber').dirty || contactForm['submitted']) 
+              && contactForm.get('phoneNumber').errors?.required">
+                    Phone Number is mandatory
+                  </span>
+                  <span class="text-danger" *ngIf="contactForm.get('phoneNumber').invalid &&
+              (contactForm.get('phoneNumber').touched || contactForm.get('phoneNumber').dirty || contactForm['submitted']) 
+              && contactForm.get('phoneNumber').errors?.pattern">
+                    Please enter a 10 digit phone number
+                  </span>
+                  </div>
+                  
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-4">
+                    <label for="rdStatus" class="col-form-label">Status:</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="rdStatusInProcess" 
+                      value="In Process">
+                    <label class="form-check-label" for="rdStatusInProcess">In Process</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="rdStatusPlaced"  value="Placed">
+                    <label class="form-check-label" for="rdStatusPlaced">Placed</label>
+                  </div>    
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="rdStatusOptedout" 
+                      value="Opted Out" >
+                    <label class="form-check-label" for="rdStatusOptedout">Opted Out</label>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col text-center">
+                    <button type="submit" class="btn btn-dark">Submit</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="col-md-6">
+      <section id="contactlist">
+        <table class="table table-dark table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th>Name</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>Pincode</th>
+              <th>Country</th>
+              <th>PhoneNumber</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tr *ngFor="let cntct of contactArray; let i=index">
+            <td>{{cntct.name}}</td>
+            <td>{{cntct.address}}</td>
+            <td>{{cntct.city}}</td>
+            <td>{{cntct.pincode}}</td>
+            <td>{{cntct.country}}</td>
+            <td>{{cntct.phoneNumber}}</td>
+            <td>{{cntct.status}}</td>
+            <td><button type="button" class="btn btn-light" (click)="onEditClick($event,i)">Edit</button></td>
+          </tr>
+        </table>
+      </section>
+    </div>
+  </div>
+</body>

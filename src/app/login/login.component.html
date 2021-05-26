@@ -1,0 +1,36 @@
+<section id="loginform">
+    <div class="card">
+        <div class="card-header">
+            <h5>Login</h5>
+        </div>
+        <span class="text-danger text-center">{{loginError}}</span>
+        <form>
+            <div class="card-body">
+                <div class="row mb-2">
+                    <div class="col-md-3">
+                        <label for="userName" class="col-form-label">Email ID:</label>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="userName" id="username" required="required"
+                            [(ngModel)]="loginData.userName" />
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-3">
+                        <label for="password" class="col-form-label">Password:</label>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="password" class="form-control" name="password" id="password" required="required"
+                            [(ngModel)]="loginData.password" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 d-flex justify-content-center">
+                        <button type="button" class="btn btn-dark" name="submit"
+                            (click)="onLoginClick($event)">Login</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
